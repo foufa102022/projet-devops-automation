@@ -24,6 +24,7 @@ environment{DOCKERHUB_CREDENTIALS=credentials('dockerhub')}
                       }}
           stage('run') {
 			steps{
+			sh 'docker rm -f $(docker ps -a)'
 			sh ' docker run -dit --net net-projet -p 27017:27017 --name container-db chetouiiftikhar/db:db '
                         sh ' docker run -dit --net net-projet -p 3080:3080 --name api-container chetouiiftikhar/api:api '
                         sh ' docker run -dit --net net-projet -p 3000:3000 --name ui-container chetouiiftikhar/ui:ui '
