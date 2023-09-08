@@ -1,0 +1,39 @@
+version: '3.3'
+
+services:
+  api:
+    image: chetouiiftikhar/api:api
+    container_name: api-container
+    restart: always
+    networks: 
+      - net-projet
+    ports:
+      - 3080:3080
+    depends_on:
+      - db
+
+  db:
+    image: mongo
+    container_name: container-db
+    restart: always
+    networks:
+      - net-projet
+    ports:
+      - 27017:27017
+    
+
+  ui:
+    image: chetouiiftikhar/ui:ui
+    container_name: ui-container
+    restart: always
+    networks:
+      - net-projet
+    ports:
+      - 3000:3000
+    depends_on:
+      - api
+      
+networks:  
+  net-projet:  
+    
+   
