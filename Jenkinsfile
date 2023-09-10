@@ -25,7 +25,7 @@ environment{DOCKERHUB_CREDENTIALS=credentials('dockerhub')}
           stage('run') {
 			steps{
 			sh 'docker-compose down'
-			sh 'docker-compose up'
+			sh 'docker-compose up -d'
 			
                       }}
                       
