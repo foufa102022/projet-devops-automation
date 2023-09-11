@@ -25,6 +25,7 @@ environment{DOCKERHUB_CREDENTIALS=credentials('dockerhub')}
           stage('run') {
 			steps{
 			sh 'docker-compose down'
+		        sh 'docker-compose kill'
 			sh 'docker-compose up -d'
 			
                       }}
